@@ -107,7 +107,7 @@ clobj::clobj(int deviceNumber){
         clGetDeviceIDs( platform_id[i], CL_DEVICE_TYPE_ALL, DEVICE_MAX_NUM, device_id, &devnum);
 
         clGetPlatformInfo(platform_id[i],CL_PLATFORM_NAME,sizeof(buffer),buffer,&size_ret);
-        if(deviceNumber==-1) printf("%s\n",buffer,i);
+        if(deviceNumber==-1) printf("%s\n",buffer);
 
         for(int j=0;j<devnum;j++){
             clGetDeviceInfo( device_id[j], CL_DEVICE_NAME, sizeof(buffer), &buffer, &size_ret);
@@ -119,7 +119,7 @@ clobj::clobj(int deviceNumber){
 
 
     if(deviceNumber==-1){
-        scanf("%d",&deviceNumber);
+        int k = scanf("%d",&deviceNumber);
         fflush(stdin);
     }
     if(deviceNumber<counter && deviceNumber >= 0){

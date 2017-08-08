@@ -48,7 +48,7 @@ void PrintDeviceQuery(){
 
     }
     unsigned int input;
-    scanf("%d",&input);
+    int scanf_returnvalue = scanf("%d",&input);
     fflush(stdin);
     /*if(input==0){
         printf("END PrintDeviceQuery\n");
@@ -68,7 +68,7 @@ void PrintDeviceQuery(){
         clGetDeviceInfo( device_id[i], CL_DEVICE_NAME  , sizeof(buffer), &buffer, &size_ret);
         printf("%d : %s\n",i,buffer);
     }
-    scanf("%d",&input);
+    scanf_returnvalue = scanf("%d",&input);
     fflush(stdin);
     /*if(input==0){
         printf("END PrintDeviceQuery\n");
@@ -275,8 +275,8 @@ void PrintDeviceInfo(){
 
     printf("(");
     for(i=0;i<cui-1;i++)
-        printf("%d,",clss[i]);
-    printf("%d)\n",clss[cui-1]);
+        printf("%zu,",clss[i]);
+    printf("%zu)\n",clss[cui-1]);
 
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_GROUP_SIZE            , sizeof(cls), &cls, &size_ret);
@@ -606,8 +606,8 @@ void PrintOnedeviceInfo(cl_device_id device_id){
 
         printf("(");
         for(i=0;i<cui-1;i++)
-            printf("%d,",clss[i]);
-        printf("%d)\n",clss[cui-1]);
+            printf("%zu,",clss[i]);
+        printf("%zu)\n",clss[cui-1]);
 
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_GROUP_SIZE            , sizeof(cls), &cls, &size_ret);
@@ -676,7 +676,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WRITE_IMAGE_ARGS           , sizeof(cui), &cui, &size_ret);
         printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %u\n",cui);
- 
+
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
         printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %zu\n",cls);
 
