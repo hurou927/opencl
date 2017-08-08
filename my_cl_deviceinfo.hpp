@@ -280,7 +280,7 @@ void PrintDeviceInfo(){
 
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_GROUP_SIZE            , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %u\n",cls);
+    printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR    , sizeof(cui), &cui, &size_ret);
     printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR        %u\n",cui);
@@ -347,25 +347,25 @@ void PrintDeviceInfo(){
     printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %u\n",cls);
+    printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %u\n",cls);
+    printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %u\n",cls);
+    printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %u\n",cls);
+    printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_DEPTH              , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %u\n",cls);
+    printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_SAMPLERS                   , sizeof(cui), &cui, &size_ret);
     printf("CL_DEVICE_MAX_SAMPLERS                       %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_PARAMETER_SIZE             , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %u\n",cls);
+    printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MEM_BASE_ADDR_ALIGN            , sizeof(cui), &cui, &size_ret);
     printf("CL_DEVICE_MEM_BASE_ADDR_ALIGN                %u\n",cui);
@@ -440,7 +440,7 @@ void PrintDeviceInfo(){
         printf("No \n");
 
     clGetDeviceInfo( device_id, CL_DEVICE_PROFILING_TIMER_RESOLUTION     , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %u\n",cls);
+    printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %zu\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_ENDIAN_LITTLE                  , sizeof(cbo), &cbo, &size_ret);
     printf("CL_DEVICE_ENDIAN_LITTLE                      ");
@@ -611,7 +611,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
 
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_GROUP_SIZE            , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %u\n",cls);
+        printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR    , sizeof(cui), &cui, &size_ret);
         printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR        %u\n",cui);
@@ -678,25 +678,25 @@ void PrintOnedeviceInfo(cl_device_id device_id){
         printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %u\n",cls);
+        printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %u\n",cls);
+        printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %u\n",cls);
+        printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %u\n",cls);
+        printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_DEPTH              , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %u\n",cls);
+        printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_SAMPLERS                   , sizeof(cui), &cui, &size_ret);
         printf("CL_DEVICE_MAX_SAMPLERS                       %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_PARAMETER_SIZE             , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %u\n",cls);
+        printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MEM_BASE_ADDR_ALIGN            , sizeof(cui), &cui, &size_ret);
         printf("CL_DEVICE_MEM_BASE_ADDR_ALIGN                %u\n",cui);
@@ -771,7 +771,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
             printf("No \n");
 
         clGetDeviceInfo( device_id, CL_DEVICE_PROFILING_TIMER_RESOLUTION     , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %u\n",cls);
+        printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %zu\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_ENDIAN_LITTLE                  , sizeof(cbo), &cbo, &size_ret);
         printf("CL_DEVICE_ENDIAN_LITTLE                      ");
