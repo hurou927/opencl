@@ -262,13 +262,13 @@ void PrintDeviceInfo(){
    printf("\n");
 
     clGetDeviceInfo( device_id, CL_DEVICE_VENDOR_ID                      , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_VENDOR_ID                          %zu\n",cui);
+    printf("CL_DEVICE_VENDOR_ID                          %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_COMPUTE_UNITS              , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_COMPUTE_UNITS                  %zu\n",cui);
+    printf("CL_DEVICE_MAX_COMPUTE_UNITS                  %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS       , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS           %zu\n",cui);
+    printf("CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS           %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_ITEM_SIZES            , sizeof(buffer), &clss, &size_ret);
     printf("CL_DEVICE_MAX_WORK_ITEM_SIZES                ");
@@ -280,55 +280,55 @@ void PrintDeviceInfo(){
 
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_GROUP_SIZE            , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %zu\n",cls);
+    printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR    , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR        %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR        %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT   , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT       %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT       %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT     , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT         %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT         %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG    , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG        %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG        %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT   , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT       %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT       %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE  , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE      %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE      %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF    , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF        %zu\n",cui);
+    printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF        %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR       , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR           %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR           %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT      , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT          %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT          %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_INT        , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_INT            %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_INT            %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG       , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG           %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG           %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT      , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT          %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT          %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE     , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE         %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE         %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF       , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF           %zu\n",cui);
+    printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF           %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_CLOCK_FREQUENCY            , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_CLOCK_FREQUENCY                %zu\n",cui);
+    printf("CL_DEVICE_MAX_CLOCK_FREQUENCY                %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_ADDRESS_BITS                   , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_ADDRESS_BITS                       %zu\n",cui);
+    printf("CL_DEVICE_ADDRESS_BITS                       %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_MEM_ALLOC_SIZE             , sizeof(cul), &cul, &size_ret);
     printf("CL_DEVICE_MAX_MEM_ALLOC_SIZE                 %zu\n",cul);
@@ -341,37 +341,37 @@ void PrintDeviceInfo(){
         printf("No \n");
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_READ_IMAGE_ARGS            , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_READ_IMAGE_ARGS                %zu\n",cui);
+    printf("CL_DEVICE_MAX_READ_IMAGE_ARGS                %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_WRITE_IMAGE_ARGS           , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %zu\n",cui);
+    printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %zu\n",cls);
+    printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %zu\n",cls);
+    printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %zu\n",cls);
+    printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %zu\n",cls);
+    printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_DEPTH              , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %zu\n",cls);
+    printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_SAMPLERS                   , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_SAMPLERS                       %zu\n",cui);
+    printf("CL_DEVICE_MAX_SAMPLERS                       %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_PARAMETER_SIZE             , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %zu\n",cls);
+    printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MEM_BASE_ADDR_ALIGN            , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MEM_BASE_ADDR_ALIGN                %zu\n",cui);
+    printf("CL_DEVICE_MEM_BASE_ADDR_ALIGN                %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE       , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE           %zu\n",cui);
+    printf("CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE           %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_SINGLE_FP_CONFIG               , sizeof(cul), &cul, &size_ret);
     printf("CL_DEVICE_SINGLE_FP_CONFIG                   | ");
@@ -396,7 +396,7 @@ void PrintDeviceInfo(){
    printf("\n");
 
     clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE      , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE          %zu\n",cui);
+    printf("CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE          %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_CACHE_SIZE          , sizeof(cul), &cul, &size_ret);
     printf("CL_DEVICE_GLOBAL_MEM_CACHE_SIZE              %zu\n",cul);
@@ -408,7 +408,7 @@ void PrintDeviceInfo(){
     printf("CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE           %zu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_CONSTANT_ARGS              , sizeof(cui), &cui, &size_ret);
-    printf("CL_DEVICE_MAX_CONSTANT_ARGS                  %zu\n",cui);
+    printf("CL_DEVICE_MAX_CONSTANT_ARGS                  %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_LOCAL_MEM_TYPE                 , sizeof(cul), &cul, &size_ret);
     printf("CL_DEVICE_LOCAL_MEM_TYPE                     | ");
@@ -440,7 +440,7 @@ void PrintDeviceInfo(){
         printf("No \n");
 
     clGetDeviceInfo( device_id, CL_DEVICE_PROFILING_TIMER_RESOLUTION     , sizeof(cls), &cls, &size_ret);
-    printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %zu\n",cls);
+    printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %u\n",cls);
 
     clGetDeviceInfo( device_id, CL_DEVICE_ENDIAN_LITTLE                  , sizeof(cbo), &cbo, &size_ret);
     printf("CL_DEVICE_ENDIAN_LITTLE                      ");
@@ -593,13 +593,13 @@ void PrintOnedeviceInfo(cl_device_id device_id){
        printf("\n");
 
         clGetDeviceInfo( device_id, CL_DEVICE_VENDOR_ID                      , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_VENDOR_ID                          %zu\n",cui);
+        printf("CL_DEVICE_VENDOR_ID                          %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_COMPUTE_UNITS              , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_COMPUTE_UNITS                  %zu\n",cui);
+        printf("CL_DEVICE_MAX_COMPUTE_UNITS                  %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS       , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS           %zu\n",cui);
+        printf("CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS           %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_ITEM_SIZES            , sizeof(buffer), &clss, &size_ret);
         printf("CL_DEVICE_MAX_WORK_ITEM_SIZES                ");
@@ -611,55 +611,55 @@ void PrintOnedeviceInfo(cl_device_id device_id){
 
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WORK_GROUP_SIZE            , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %zu\n",cls);
+        printf("CL_DEVICE_MAX_WORK_GROUP_SIZE                %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR    , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR        %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR        %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT   , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT       %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT       %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT     , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT         %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT         %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG    , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG        %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG        %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT   , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT       %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT       %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE  , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE      %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE      %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF    , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF        %zu\n",cui);
+        printf("CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF        %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR       , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR           %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR           %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT      , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT          %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT          %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_INT        , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_INT            %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_INT            %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG       , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG           %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG           %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT      , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT          %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT          %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE     , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE         %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE         %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF       , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF           %zu\n",cui);
+        printf("CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF           %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_CLOCK_FREQUENCY            , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_CLOCK_FREQUENCY                %zu\n",cui);
+        printf("CL_DEVICE_MAX_CLOCK_FREQUENCY                %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_ADDRESS_BITS                   , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_ADDRESS_BITS                       %zu\n",cui);
+        printf("CL_DEVICE_ADDRESS_BITS                       %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_MEM_ALLOC_SIZE             , sizeof(cul), &cul, &size_ret);
         printf("CL_DEVICE_MAX_MEM_ALLOC_SIZE                 %zu\n",cul);
@@ -672,37 +672,37 @@ void PrintOnedeviceInfo(cl_device_id device_id){
             printf("No \n");
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_READ_IMAGE_ARGS            , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_READ_IMAGE_ARGS                %zu\n",cui);
+        printf("CL_DEVICE_MAX_READ_IMAGE_ARGS                %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WRITE_IMAGE_ARGS           , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %zu\n",cui);
+        printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %zu\n",cls);
+        printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %zu\n",cls);
+        printf("CL_DEVICE_IMAGE2D_MAX_HEIGHT                 %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %zu\n",cls);
+        printf("CL_DEVICE_IMAGE3D_MAX_WIDTH                  %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_HEIGHT             , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %zu\n",cls);
+        printf("CL_DEVICE_IMAGE3D_MAX_HEIGHT                 %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE3D_MAX_DEPTH              , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %zu\n",cls);
+        printf("CL_DEVICE_IMAGE3D_MAX_DEPTH                  %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_SAMPLERS                   , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_SAMPLERS                       %zu\n",cui);
+        printf("CL_DEVICE_MAX_SAMPLERS                       %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_PARAMETER_SIZE             , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %zu\n",cls);
+        printf("CL_DEVICE_MAX_PARAMETER_SIZE                 %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MEM_BASE_ADDR_ALIGN            , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MEM_BASE_ADDR_ALIGN                %zu\n",cui);
+        printf("CL_DEVICE_MEM_BASE_ADDR_ALIGN                %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE       , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE           %zu\n",cui);
+        printf("CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE           %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_SINGLE_FP_CONFIG               , sizeof(cul), &cul, &size_ret);
         printf("CL_DEVICE_SINGLE_FP_CONFIG                   | ");
@@ -727,7 +727,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
        printf("\n");
 
         clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE      , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE          %zu\n",cui);
+        printf("CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE          %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_CACHE_SIZE          , sizeof(cul), &cul, &size_ret);
         printf("CL_DEVICE_GLOBAL_MEM_CACHE_SIZE              %zu\n",cul);
@@ -739,7 +739,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
         printf("CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE           %zu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_CONSTANT_ARGS              , sizeof(cui), &cui, &size_ret);
-        printf("CL_DEVICE_MAX_CONSTANT_ARGS                  %zu\n",cui);
+        printf("CL_DEVICE_MAX_CONSTANT_ARGS                  %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_LOCAL_MEM_TYPE                 , sizeof(cul), &cul, &size_ret);
         printf("CL_DEVICE_LOCAL_MEM_TYPE                     | ");
@@ -771,7 +771,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
             printf("No \n");
 
         clGetDeviceInfo( device_id, CL_DEVICE_PROFILING_TIMER_RESOLUTION     , sizeof(cls), &cls, &size_ret);
-        printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %zu\n",cls);
+        printf("CL_DEVICE_PROFILING_TIMER_RESOLUTION         %u\n",cls);
 
         clGetDeviceInfo( device_id, CL_DEVICE_ENDIAN_LITTLE                  , sizeof(cbo), &cbo, &size_ret);
         printf("CL_DEVICE_ENDIAN_LITTLE                      ");
