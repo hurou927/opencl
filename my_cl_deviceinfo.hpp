@@ -676,7 +676,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_WRITE_IMAGE_ARGS           , sizeof(cui), &cui, &size_ret);
         printf("CL_DEVICE_MAX_WRITE_IMAGE_ARGS               %u\n",cui);
-
+ 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE2D_MAX_WIDTH              , sizeof(cls), &cls, &size_ret);
         printf("CL_DEVICE_IMAGE2D_MAX_WIDTH                  %zu\n",cls);
 
