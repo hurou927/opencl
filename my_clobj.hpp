@@ -26,11 +26,11 @@ public:
     cldim3(size_t x, size_t y, size_t z)  {d[0] = x; d[1] = y; d[2] = z;}  ;
 };
 
-class clobj{
+class clLikeCUDA{
 public:
-    clobj();
-    clobj(int deviceNumber);
-    ~clobj();
+    clLikeCUDA();
+    clLikeCUDA(int deviceNumber);
+    ~clLikeCUDA();
     cl_kernel clCreateKernelFromFile(char *filename, char *funcname, char *options);
     void clMalloc(cl_mem **memadder, size_t size, cl_mem_flags flags);
     void clMemcpy(void * dst, const void *src, size_t size, enum clMemcpyKind kind);
@@ -67,7 +67,7 @@ private:
     };
 #endif
 };
-clobj::clobj(){
+clLikeCUDA::clLikeCUDA(){
     cl_int err;
     err=clGetPlatformIDs(1,&platform,NULL);
     if(err != CL_SUCCESS){
@@ -89,7 +89,7 @@ clobj::clobj(){
 
 
 }
-clobj::clobj(int deviceNumber){
+clLikeCUDA::clLikeCUDA(int deviceNumber){
     cl_int err;
 
     cl_platform_id platform_id[PLATFORM_MAX_NUM];
@@ -138,11 +138,11 @@ clobj::clobj(int deviceNumber){
         exit(EXIT_FAILURE);
     }
 }
-clobj::~clobj(){
+clLikeCUDA::~clLikeCUDA(){
     clReleaseCommandQueue(queue);
     clReleaseContext(context);
 }
-void clobj::printTargetInfo(){
+void clLikeCUDA::printTargetInfo(){
     char buffer[1024];
     size_t size_ret;
     clGetPlatformInfo(platform,CL_PLATFORM_NAME,sizeof(buffer),buffer,&size_ret);
@@ -152,11 +152,11 @@ void clobj::printTargetInfo(){
 	// clGetDeviceInfo( device, CL_DEVICE_OPENCL_C_VERSION, sizeof(buffer), &buffer, &size_ret);
 	// printf("CL_DEVICE_OPENCL_C_VERSION     %s\n",buffer);
 }
-void clobj::printTargetInfoDetail(){
+void clLikeCUDA::printTargetInfoDetail(){
     PrintOneplatformInfo(platform);/*引数のプラットフォーム情報表示*/
     PrintOnedeviceInfo(device);/*引数のデバイス情報表示*/
 }
-cl_kernel clobj::clCreateKernelFromFile(char *filename, char *funcname, char *options){
+cl_kernel clLikeCUDA::clCreateKernelFromFile(char *filename, char *funcname, char *options){
     cl_int err;
     std::ifstream ifs(filename);
     std::string content( (std::istreambuf_iterator<char>(ifs) ),
@@ -189,7 +189,7 @@ cl_kernel clobj::clCreateKernelFromFile(char *filename, char *funcname, char *op
     return kernel;
 }
 /*
-void clobj::clMalloc(cl_mem *memadder, size_t size, cl_mem_flags flags){
+void clLikeCUDA::clMalloc(cl_mem *memadder, size_t size, cl_mem_flags flags){
     cl_int err;
     *memadder = clCreateBuffer(context,flags,size,NULL,&err);
     if(err!=CL_SUCCESS){
@@ -198,7 +198,7 @@ void clobj::clMalloc(cl_mem *memadder, size_t size, cl_mem_flags flags){
     }
 }
 */
-void clobj::clMalloc(cl_mem **memadder, size_t size, cl_mem_flags flags){
+void clLikeCUDA::clMalloc(cl_mem **memadder, size_t size, cl_mem_flags flags){
     cl_int err;
     *memadder = (cl_mem*)malloc(sizeof(cl_mem));
     **memadder = clCreateBuffer(context,flags,size,NULL,&err);
@@ -207,7 +207,7 @@ void clobj::clMalloc(cl_mem **memadder, size_t size, cl_mem_flags flags){
         exit(EXIT_FAILURE);
     }
 }
-void clobj::clMemcpy(void * dst, const void *src, size_t dstoffset,size_t srcoffset, size_t size, enum clMemcpyKind kind){
+void clLikeCUDA::clMemcpy(void * dst, const void *src, size_t dstoffset,size_t srcoffset, size_t size, enum clMemcpyKind kind){
     cl_int err;
     if(kind == clMemcpyHostToDevice){
         err =clEnqueueWriteBuffer(queue, *((cl_mem *)dst), CL_TRUE, srcoffset, size, src, 0, NULL, &event);
@@ -229,11 +229,11 @@ void clobj::clMemcpy(void * dst, const void *src, size_t dstoffset,size_t srcoff
         }
     }
 }
-void clobj::clMemcpy(void * dst, const void *src, size_t size, enum clMemcpyKind kind){
+void clLikeCUDA::clMemcpy(void * dst, const void *src, size_t size, enum clMemcpyKind kind){
     clMemcpy(dst, src, 0, 0, size, kind);
 }
 
-cl_int clobj::runkernel(cl_kernel kernel, cldim3 &blocks, cldim3 &threads){
+cl_int clLikeCUDA::runkernel(cl_kernel kernel, cldim3 &blocks, cldim3 &threads){
      size_t threads_per_grids[3];
     for(int i=0;i<3;i++) threads_per_grids[i] = blocks.d[i]*threads.d[i];
     cl_int err = clEnqueueNDRangeKernel(queue,kernel,3,NULL, threads_per_grids,threads.d,0,NULL,&event);
@@ -241,7 +241,7 @@ cl_int clobj::runkernel(cl_kernel kernel, cldim3 &blocks, cldim3 &threads){
     return err;
 }
 
-cl_int clobj::runkernel(cl_kernel kernel, size_t blocks, size_t threads){
+cl_int clLikeCUDA::runkernel(cl_kernel kernel, size_t blocks, size_t threads){
     size_t threads_per_grids = blocks*threads;
     cl_int err = clEnqueueNDRangeKernel(queue,kernel,1,NULL, &threads_per_grids, &threads,0,NULL,&event);
     clWaitForEvents(1, &event);

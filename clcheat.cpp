@@ -14,7 +14,7 @@ int main(int argc, char **argv){
     //PrintDeviceQuery();
     timeStamp ts(10,"ms");
 
-    clobj clo;//qeury:clo(-1)
+    clLikeCUDA clo;//qeury:clo(-1)
     clo.printTargetInfo(); //clo.printTargetInfoDetail();
     cl_kernel kernel1 = clo.clCreateKernelFromFile((char *)"matmul.cl",(char *)"matmul",(char *)"");
     //cl_kernel kernel2 = clo.clCreateKernelFromFile((char *)"matmul.cl",(char *)"matmul",(char *)"");
