@@ -13,7 +13,7 @@
 			steady_clock::now().time_since_epoch()).count())/1000000000;
 	}
 
-#elif defined(__unix)
+#elif defined(__unix) || defined(__APPLE__)
 	#if _USE_GETTIMEOFDAY == 1
 		#include <sys/time.h>
 		#define __GETTIMEMETHOD "gettimeofday"

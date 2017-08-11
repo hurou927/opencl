@@ -8,7 +8,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef __APPLE__
+#include <OpenCL/opencl.h>
+#else
 #include <CL/cl.h>
+#endif
 
 const char *getErrorString(cl_int error);
 

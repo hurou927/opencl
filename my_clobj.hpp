@@ -7,7 +7,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef __APPLE__
+#include <OpenCL/opencl.h>
+#else
 #include <CL/cl.h>
+#endif
+
 #include <fstream>
 #include "my_cl_deviceinfo.hpp"
 #include "my_cl_util.hpp"

@@ -1,22 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef __APPLE__
+#include <OpenCL/opencl.h>
+#else
 #include <CL/cl.h>
+#endif
 
 #include "my_gettime.hpp"
-#include "my_cl_util.hpp"
+
 #include "my_clobj.hpp"
-
-
 
 
 int main(int argc, char **argv){
     //PrintDeviceQuery();
-    timeStamp ts(10,"ms");
+
+    timeStamp ts(10);
+/*    ts.stamp();
+    std::cout<<"Hello"<<__cplusplus<<std::endl;
+    ts.stamp();
+    ts.print();*/
 
     clLikeCUDA clo;//qeury:clo(-1)
     clo.printTargetInfo(); //clo.printTargetInfoDetail();
-    cl_kernel kernel1 = clo.clCreateKernelFromFile((char *)"matmul.cl",(char *)"matmul",(char *)"");
+    char *fileName = "matmul.cl";
+    char *funcName = "matmul";
+    char *options = "";
+    cl_kernel kernel1 = clo.clCreateKernelFromFile(fileName, funcName, options);
     //cl_kernel kernel2 = clo.clCreateKernelFromFile((char *)"matmul.cl",(char *)"matmul",(char *)"");
 
     cl_mem *d_a;
