@@ -14,13 +14,8 @@
 
 
 int main(int argc, char **argv){
-    //PrintDeviceQuery();
 
     timeStamp ts(10);
-/*    ts.stamp();
-    std::cout<<"Hello"<<__cplusplus<<std::endl;
-    ts.stamp();
-    ts.print();*/
 
     clLikeCUDA clo;//qeury:clo(-1)
     clo.printTargetInfo(); //clo.printTargetInfoDetail();
