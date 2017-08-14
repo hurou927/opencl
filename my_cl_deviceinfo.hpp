@@ -336,7 +336,7 @@ void PrintDeviceInfo(){
     printf("CL_DEVICE_ADDRESS_BITS                       %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_MEM_ALLOC_SIZE             , sizeof(cul), &cul, &size_ret);
-    printf("CL_DEVICE_MAX_MEM_ALLOC_SIZE                 %zu\n",cul);
+    printf("CL_DEVICE_MAX_MEM_ALLOC_SIZE                 %llu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_IMAGE_SUPPORT                  , sizeof(cbo), &cbo, &size_ret);
     printf("CL_DEVICE_IMAGE_SUPPORT                      ");
@@ -404,13 +404,13 @@ void PrintDeviceInfo(){
     printf("CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE          %u\n",cui);
 
     clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_CACHE_SIZE          , sizeof(cul), &cul, &size_ret);
-    printf("CL_DEVICE_GLOBAL_MEM_CACHE_SIZE              %zu\n",cul);
+    printf("CL_DEVICE_GLOBAL_MEM_CACHE_SIZE              %llu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_SIZE                , sizeof(cul), &cul, &size_ret);
-    printf("CL_DEVICE_GLOBAL_MEM_SIZE                    %zu\n",cul);
+    printf("CL_DEVICE_GLOBAL_MEM_SIZE                    %llu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE       , sizeof(cul), &cul, &size_ret);
-    printf("CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE           %zu\n",cul);
+    printf("CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE           %llu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_MAX_CONSTANT_ARGS              , sizeof(cui), &cui, &size_ret);
     printf("CL_DEVICE_MAX_CONSTANT_ARGS                  %u\n",cui);
@@ -428,7 +428,7 @@ void PrintDeviceInfo(){
 
 
     clGetDeviceInfo( device_id, CL_DEVICE_LOCAL_MEM_SIZE                 , sizeof(cul), &cul, &size_ret);
-    printf("CL_DEVICE_LOCAL_MEM_SIZE                     %zu\n",cul);
+    printf("CL_DEVICE_LOCAL_MEM_SIZE                     %llu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_ERROR_CORRECTION_SUPPORT       , sizeof(cbo), &cbo, &size_ret);
     printf("CL_DEVICE_ERROR_CORRECTION_SUPPORT           ");
@@ -490,7 +490,7 @@ void PrintDeviceInfo(){
      }
     printf("\n");
     // clGetDeviceInfo( device_id, CL_DEVICE_PLATFORM                       , sizeof(cul), &cul, &size_ret);
-    // printf("CL_DEVICE_PLATFORM                           %zu\n",cul);
+    // printf("CL_DEVICE_PLATFORM                           %llu\n",cul);
 
     clGetDeviceInfo( device_id, CL_DEVICE_EXTENSIONS                     , sizeof(buffer), &buffer, &size_ret);
     printf("CL_DEVICE_EXTENSIONS                         %s\n",buffer);
@@ -667,7 +667,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
         printf("CL_DEVICE_ADDRESS_BITS                       %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_MEM_ALLOC_SIZE             , sizeof(cul), &cul, &size_ret);
-        printf("CL_DEVICE_MAX_MEM_ALLOC_SIZE                 %zu\n",cul);
+        printf("CL_DEVICE_MAX_MEM_ALLOC_SIZE                 %llu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_IMAGE_SUPPORT                  , sizeof(cbo), &cbo, &size_ret);
         printf("CL_DEVICE_IMAGE_SUPPORT                      ");
@@ -735,13 +735,13 @@ void PrintOnedeviceInfo(cl_device_id device_id){
         printf("CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE          %u\n",cui);
 
         clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_CACHE_SIZE          , sizeof(cul), &cul, &size_ret);
-        printf("CL_DEVICE_GLOBAL_MEM_CACHE_SIZE              %zu\n",cul);
+        printf("CL_DEVICE_GLOBAL_MEM_CACHE_SIZE              %llu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_GLOBAL_MEM_SIZE                , sizeof(cul), &cul, &size_ret);
-        printf("CL_DEVICE_GLOBAL_MEM_SIZE                    %zu\n",cul);
+        printf("CL_DEVICE_GLOBAL_MEM_SIZE                    %llu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE       , sizeof(cul), &cul, &size_ret);
-        printf("CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE           %zu\n",cul);
+        printf("CL_DEVICE_MAX_CONSTANT_BUFFER_SIZE           %llu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_MAX_CONSTANT_ARGS              , sizeof(cui), &cui, &size_ret);
         printf("CL_DEVICE_MAX_CONSTANT_ARGS                  %u\n",cui);
@@ -759,7 +759,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
 
 
         clGetDeviceInfo( device_id, CL_DEVICE_LOCAL_MEM_SIZE                 , sizeof(cul), &cul, &size_ret);
-        printf("CL_DEVICE_LOCAL_MEM_SIZE                     %zu\n",cul);
+        printf("CL_DEVICE_LOCAL_MEM_SIZE                     %llu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_ERROR_CORRECTION_SUPPORT       , sizeof(cbo), &cbo, &size_ret);
         printf("CL_DEVICE_ERROR_CORRECTION_SUPPORT           ");
@@ -821,7 +821,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
          }
         printf("\n");
         // clGetDeviceInfo( device_id, CL_DEVICE_PLATFORM                       , sizeof(cul), &cul, &size_ret);
-        // printf("CL_DEVICE_PLATFORM                           %zu\n",cul);
+        // printf("CL_DEVICE_PLATFORM                           %llu\n",cul);
 
         clGetDeviceInfo( device_id, CL_DEVICE_EXTENSIONS                     , sizeof(buffer), &buffer, &size_ret);
         printf("CL_DEVICE_EXTENSIONS                         %s\n",buffer);
