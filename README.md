@@ -16,7 +16,7 @@ clLikeCUDA clo(-1);///stdio selection mode
 
 ### build OpenCL source
 ```
-cl_kernel kernel1 = clo.clCreateKernelFromFile((char *)"matmul.cl",(char *)"matmul",(char *)"");
+cl_kernel kernel1 = clo.clCreateKernelFromFile(fileName, functionName, options);
 ```
 
 
