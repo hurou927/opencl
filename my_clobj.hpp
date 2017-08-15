@@ -103,21 +103,23 @@ clLikeCUDA::clLikeCUDA(int deviceNumber){
     cl_uint devnum;
     cl_uint num_platforms;
     cl_platform_id clSelectedPlatformID = NULL;
-    char buffer[1024];
+    char buffer_plat[128], buffer_dev[128];
     size_t size_ret;
     int counter = 0;
     clGetPlatformIDs (PLATFORM_MAX_NUM, platform_id, &num_platforms);
     std::vector< std::pair<cl_platform_id, cl_device_id> > plat_dev_pairs;
-
+    if(deviceNumber==-1){
+        printf("[No.] platform = \"platformName\", device = \"deviceName\"\n");
+        printf("----------------------------------------------------------\n");
+    }
     for(int i=0;i<num_platforms;i++){
         clGetDeviceIDs( platform_id[i], CL_DEVICE_TYPE_ALL, DEVICE_MAX_NUM, device_id, &devnum);
 
-        clGetPlatformInfo(platform_id[i],CL_PLATFORM_NAME,sizeof(buffer),buffer,&size_ret);
-        if(deviceNumber==-1) printf("%s\n",buffer);
+        clGetPlatformInfo(platform_id[i],CL_PLATFORM_NAME,sizeof(buffer_plat),buffer_plat,&size_ret);
 
         for(int j=0;j<devnum;j++){
-            clGetDeviceInfo( device_id[j], CL_DEVICE_NAME, sizeof(buffer), &buffer, &size_ret);
-        	if(deviceNumber==-1) printf("  <%d-%d> %s [%d]\n",i,j,buffer,counter);
+            clGetDeviceInfo( device_id[j], CL_DEVICE_NAME, sizeof(buffer_dev), buffer_dev, &size_ret);
+            if(deviceNumber==-1) printf("[%3d] platform = \"%s\", device = \"%s\"\n",counter,buffer_plat, buffer_dev);
             counter++;
             plat_dev_pairs.push_back( std::make_pair( platform_id[i] , device_id[j] ) );
         }
@@ -125,12 +127,17 @@ clLikeCUDA::clLikeCUDA(int deviceNumber){
 
 
     if(deviceNumber==-1){
+        printf("----------------------------------------------------------\n");
+        printf("input device number : ");
         int k = scanf("%d",&deviceNumber);
         fflush(stdin);
+        printf("----------------------------------------------------------\n");
     }
     if(deviceNumber<counter && deviceNumber >= 0){
+        platform = plat_dev_pairs[deviceNumber].first;
         device = plat_dev_pairs[deviceNumber].second;
     }else{
+        platform = 0;
         device = 0;
     }
     context=clCreateContext(NULL,1,&device,NULL,NULL,&err);
@@ -152,9 +159,9 @@ void clLikeCUDA::printTargetInfo(){
     char buffer[1024];
     size_t size_ret;
     clGetPlatformInfo(platform,CL_PLATFORM_NAME,sizeof(buffer),buffer,&size_ret);
-    printf("%s,%s,","CL_PLATFORM_NAME",buffer);
+    printf("%s,%s,","CL_PLATFORM_NAME",buffer);    fflush(stdout);
     clGetDeviceInfo( device, CL_DEVICE_NAME, sizeof(buffer), &buffer, &size_ret);
-	printf("%s,%s\n","CL_DEVICE_NAME",buffer);
+	printf("%s,%s\n","CL_DEVICE_NAME",buffer);    fflush(stdout);
 	// clGetDeviceInfo( device, CL_DEVICE_OPENCL_C_VERSION, sizeof(buffer), &buffer, &size_ret);
 	// printf("CL_DEVICE_OPENCL_C_VERSION     %s\n",buffer);
 }

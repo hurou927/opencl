@@ -11,10 +11,12 @@ int main(int argc, char **argv){
     timeStamp ts(10);
 
     // select platform and device
-    clLikeCUDA clo;//qeury:clo(-1)
+    //clLikeCUDA clo;
+	clLikeCUDA clo(-1); //stdio selection mode
 
     //print target device
-    clo.printTargetInfo(); //clo.printTargetInfoDetail();
+    clo.printTargetInfo();
+    //clo.printTargetInfoDetail();
 
     //build source
     char fileName[] = "matmul.cl";
@@ -85,7 +87,12 @@ int main(int argc, char **argv){
         }
     }
 */
-    ts.print();
+//    ts.print();
+    printf("--------------------------------------\n");
+    printf("[ Matrix Multiplication(1024 x 1024) ]\n");
+    printf("host->device, %6.3f,ms\n",ts.interval(0,1)*1000);
+    printf("kernel      , %6.3f,ms\n",ts.interval(1,2)*1000);
+    printf("device->host, %6.3f,ms\n",ts.interval(2,3)*1000);
 
     clReleaseMemObject(*d_a);
     clReleaseMemObject(*d_b);

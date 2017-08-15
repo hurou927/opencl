@@ -1,11 +1,5 @@
 # OpenCL Wrapper like CUDA
 
-## compile
-```
-g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL
-g++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL
-```
-
 ## Usage
 
 ### include
@@ -59,4 +53,30 @@ cldim3 blocks(64,64);
 cldim3 threads(16,16);
 
 cl_int err = clo.runkernel(kernel1,blocks,threads);
+```
+
+
+
+## Compile
+```
+g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL
+clang++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL
+```
+## Run
+```
+$./clcheat
+[No.] platform = "platformName", device = "deviceName"
+----------------------------------------------------------
+[  0] platform = "NVIDIA CUDA", device = "GeForce GTX 750 Ti"
+[  1] platform = "Intel(R) OpenCL", device = "Intel(R) Core(TM) i5-4440 CPU @ 3.10GHz"
+----------------------------------------------------------
+input device number : 0
+----------------------------------------------------------
+CL_PLATFORM_NAME,NVIDIA CUDA,CL_DEVICE_NAME,GeForce GTX 750 Ti
+--------------------------------------
+[ Matrix Multiplication(1024 x 1024) ]
+host->device,  3.799,ms
+kernel      , 12.602,ms
+device->host,  0.859,ms
+
 ```
