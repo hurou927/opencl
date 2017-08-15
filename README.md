@@ -1,5 +1,11 @@
 # OpenCL Wrapper like CUDA
 
+## compile
+```
+g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL           //linux
+clang++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL  //Max OS
+```
+
 ## Usage
 
 ### include
