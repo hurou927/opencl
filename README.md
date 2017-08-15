@@ -1,10 +1,16 @@
 # OpenCL Wrapper like CUDA
 
+## compile
+```
+g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL
+g++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL
+```
+
 ## Usage
 
 ### include
 ```
-#include "my_clo.obj"
+#include "my_clo.hpp"
 ```
 
 ### instatiation
