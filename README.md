@@ -2,8 +2,8 @@
 
 ## compile
 ```
-g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL
-g++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL
+g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL           //linux
+g++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL  //Max OS
 ```
 
 ## Usage
