@@ -112,12 +112,12 @@ clLikeCUDA::clLikeCUDA(int deviceNumber){
         printf("[No.] platform = \"platformName\", device = \"deviceName\"\n");
         printf("----------------------------------------------------------\n");
     }
-    for(int i=0;i<num_platforms;i++){
+    for(cl_uint i=0;i<num_platforms;i++){
         clGetDeviceIDs( platform_id[i], CL_DEVICE_TYPE_ALL, DEVICE_MAX_NUM, device_id, &devnum);
 
         clGetPlatformInfo(platform_id[i],CL_PLATFORM_NAME,sizeof(buffer_plat),buffer_plat,&size_ret);
 
-        for(int j=0;j<devnum;j++){
+        for(cl_uint j=0;j<devnum;j++){
             clGetDeviceInfo( device_id[j], CL_DEVICE_NAME, sizeof(buffer_dev), buffer_dev, &size_ret);
             if(deviceNumber==-1) printf("[%3d] platform = \"%s\", device = \"%s\"\n",counter,buffer_plat, buffer_dev);
             counter++;

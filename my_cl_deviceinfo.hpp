@@ -44,7 +44,7 @@ void PrintDeviceQuery(){
 
     clGetPlatformIDs (PLATFORM_MAX_NUM, platform_id, &num_platforms);
     printf("The number of PlatForm              %d\n",num_platforms);
-    int i,j;
+    unsigned int i,j;
     printf("Choose Platform\n");
     printf("%d : END PrintDeviceQuery\n",0);
     for(i=0;i<num_platforms;i++){
@@ -93,7 +93,7 @@ void PrintDeviceInfoALL(){
     cl_platform_id clSelectedPlatformID = NULL;
     clGetPlatformIDs (PLATFORM_MAX_NUM, platform_id, &num_platforms);
     printf("The number of PlatForm              %d\n",num_platforms);
-    int i,j;
+    unsigned int i,j;
     for(i=0;i<num_platforms;i++){
         clGetDeviceIDs( platform_id[i], CL_DEVICE_TYPE_ALL, DEVICE_MAX_NUM, device_id, &devnum);
         printf("\n\n\n\nPLATFORM NO.%02d   The number of Alldevice  %d\n",i,devnum);
@@ -113,7 +113,7 @@ void PrintDeviceInfoGPU(){
     cl_platform_id clSelectedPlatformID = NULL;
     clGetPlatformIDs (PLATFORM_MAX_NUM, platform_id, &num_platforms);
     printf("The number of PlatForm              %d\n",num_platforms);
-    int i,j;
+    unsigned int i,j;
     for(i=0;i<num_platforms;i++){
         clGetDeviceIDs( platform_id[i], CL_DEVICE_TYPE_GPU, DEVICE_MAX_NUM, device_id, &devnum);
         printf("\n\n\n\nPLATFORM NO.%02d   The number of GPU  %d\n",i,devnum);
@@ -133,7 +133,7 @@ void PrintDeviceInfoCPU(){
     cl_platform_id clSelectedPlatformID = NULL;
     clGetPlatformIDs (PLATFORM_MAX_NUM, platform_id, &num_platforms);
     printf("The number of PlatForm              %d\n",num_platforms);
-    int i,j;
+    unsigned int i,j;
     for(i=0;i<num_platforms;i++){
         clGetDeviceIDs( platform_id[i], CL_DEVICE_TYPE_CPU, DEVICE_MAX_NUM, device_id, &devnum);
         printf("\n\n\n\nPLATFORM NO.%02d   The number of CPU  %d\n",i,devnum);
@@ -235,7 +235,7 @@ void PrintDeviceInfo(){
     cl_ulong cul;
     cl_bool cbo;
 
-    int i;
+    unsigned int i;
 
     clGetDeviceInfo( device_id, CL_DEVICE_NAME                           , sizeof(buffer), &buffer, &size_ret);
     printf("CL_DEVICE_NAME                               %s\n",buffer);
@@ -566,7 +566,7 @@ void PrintOnedeviceInfo(cl_device_id device_id){
         cl_ulong cul;
         cl_bool cbo;
 
-        int i;
+        unsigned int i;
 
         clGetDeviceInfo( device_id, CL_DEVICE_NAME                           , sizeof(buffer), &buffer, &size_ret);
         printf("CL_DEVICE_NAME                               %s\n",buffer);
