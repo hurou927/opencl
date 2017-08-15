@@ -1,41 +1,35 @@
 # OpenCL Wrapper like CUDA
 
-## compile
-```
-g++ -o clcheat clcheat.cpp -std=c++11 -lOpenCL           //linux
-clang++ -o clcheat clcheat.cpp -std=c++11 -framework OpenCL  //Max OS
-```
-
 ## Usage
 
-### include
-```
+##### include
+```c++
 #include "my_clo.hpp"
 ```
 
-### instatiation
-```
+##### instatiation
+```c++
 clLikeCUDA clo;///platform_id = 0, device_id = 0
 clLikeCUDA clo(deviceNumber);
 clLikeCUDA clo(-1);///stdio selection mode
 ```
 
-### build OpenCL source
-```
+##### build OpenCL source
+```c++
 cl_kernel kernel1 = clo.clCreateKernelFromFile(fileName, functionName, options);
 ```
 
 
-### malloc device memory
+##### malloc device memory
 ```cl_mem_flag``` -> https://www.khronos.org/registry/OpenCL/sdk/1.0/docs/man/xhtml/clCreateBuffer.html
 
-```
+```c++
 cl_mem *d_a;
 clo.clMalloc(&d_a,sizeof(int)*1024*1024,CL_MEM_READ_ONLY);
 ```
 
-### set arguments
-```
+##### set arguments
+```c++
 #if __cplusplus >= 201103L  //-std=c++11
     clo.clSetKernelArgs(kernel1, d_a, d_b);
 #else
@@ -44,17 +38,17 @@ clo.clMalloc(&d_a,sizeof(int)*1024*1024,CL_MEM_READ_ONLY);
 #endif
 ```
 
-### memory copy
+##### memory copy
 * ```clMemcpyHostToDevice```  device -> host
 * ```clMemcpyDeviceToHost```  host -> device
 * ```clMemcpyDeivceToDevice```  device -> device
 
-```
+```c++
 clo.clMemcpy(d_a,h_a,sizeof(int)*1024*1024,clMemcpyHostToDevice);
 ```
 
-### run kernel
-```
+##### run kernel
+```c++
 cldim3 blocks(64,64);
 cldim3 threads(16,16);
 
