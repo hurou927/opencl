@@ -12,7 +12,7 @@ int main(int argc, char **argv){
 
     // select platform and device
     //clLikeCUDA clo;
-	clLikeCUDA clo(-1); //stdio selection mode
+    clLikeCUDA clo(-1); //stdin selection mode
 
     //print target device
     clo.printTargetInfo();
