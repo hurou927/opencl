@@ -11,8 +11,9 @@ int main(int argc, char **argv){
     timeStamp ts(10);
 
     // select platform and device
-    //clLikeCUDA clo;
-    clLikeCUDA clo(-1); //stdin selection mode
+    //clLikeCUDA clo;      // default platform and device
+    //clLikeCUDA clo(1);   // device number
+    clLikeCUDA clo(-1);  // stdin selection mode
 
     //print target device
     clo.printTargetInfo();
