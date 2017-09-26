@@ -6,7 +6,8 @@ typedef struct{
 
 __kernel void matmul(	__global int* matrix,
 						__global int* vector,
-						__global int* result){
+						__global int* result,
+						int WIDTH){
 
 	IDX threadIdx = {get_local_id(0),get_local_id(1),get_local_id(2)};
 	//IDX blockIdx  = {get_group_id(0),get_group_id(1),get_group_id(2)};
@@ -17,14 +18,14 @@ __kernel void matmul(	__global int* matrix,
 	__local int A[256];
 	__local int B[256];
 
-
+	int loopLimit = WIDTH/16;
 	int l_id = threadIdx.x + threadIdx.y * 16;
 	int i,j;
 	int sum = 0;
-	for(j=0;j<64;j++){
+	for(j=0;j<loopLimit;j++){
 		// global -> shared
-		A[l_id] = matrix[(threadIdx.x + j) + globalIdx.y * 1024];
-		B[l_id] = vector[globalIdx.x + (threadIdx.y + j) * 1024];
+		A[l_id] = matrix[(threadIdx.x + j) + globalIdx.y * WIDTH];
+		B[l_id] = vector[globalIdx.x + (threadIdx.y + j) * WIDTH];
 
 		barrier(CLK_LOCAL_MEM_FENCE);
 
@@ -34,7 +35,7 @@ __kernel void matmul(	__global int* matrix,
 		}
 	}
 
-	result[globalIdx.x+globalIdx.y*1024]=sum;
-	
+	result[globalIdx.x+globalIdx.y*WIDTH]=sum;
+
 	//printf("Hello, World GroupID:%2d GlobalID:%2d LocalID:%2d\n",get_group_id(0),get_global_id(0),get_local_id(0));
 }

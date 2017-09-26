@@ -4,9 +4,13 @@
 
 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+
+#include <string>
+#include <sstream>
+#include <iostream>
 
 #ifdef __APPLE__
 #include <OpenCL/opencl.h>
@@ -17,6 +21,20 @@
 #include <fstream>
 #include "my_cl_deviceinfo.hpp"
 #include "my_cl_util.hpp"
+
+template <typename T>
+std::string createOption(std::string varName, T val){
+    std::ostringstream opt;
+    opt<<" -D\""<< varName <<"="<< val <<"\" ";
+    return opt.str();
+}
+template <typename T>
+std::string createOption(const char* varName, T val){
+    std::ostringstream opt;
+    opt<<" -D\""<< varName <<"="<< val <<"\" ";
+    return opt.str();
+}
+
 
 enum clMemcpyKind{
     clMemcpyHostToDevice,
@@ -37,7 +55,8 @@ public:
     clLikeCUDA();
     clLikeCUDA(int deviceNumber);
     ~clLikeCUDA();
-    cl_kernel clCreateKernelFromFile(char *filename, char *funcname, char *options);
+    cl_kernel clCreateKernelFromFile(const char *filename,const char *funcname,const char *options);
+    cl_kernel clCreateKernelFromFile(std::string &filename, std::string &funcname, std::string &options);
     void clMalloc(cl_mem **memadder, size_t size, cl_mem_flags flags);
     void clMemcpy(void * dst, const void *src, size_t size, enum clMemcpyKind kind);
     void clMemcpy(void * dst, const void *src, size_t dstoffset,size_t srcoffset, size_t size, enum clMemcpyKind kind);
@@ -166,12 +185,47 @@ void clLikeCUDA::printTargetInfo(){
 	// printf("CL_DEVICE_OPENCL_C_VERSION     %s\n",buffer);
 }
 void clLikeCUDA::printTargetInfoDetail(){
-    PrintOneplatformInfo(platform);/*引数のプラットフォーム情報表示*/
-    PrintOnedeviceInfo(device);/*引数のデバイス情報表示*/
+    PrintOneplatformInfo(platform);
+    PrintOnedeviceInfo(device);
 }
-cl_kernel clLikeCUDA::clCreateKernelFromFile(char *filename, char *funcname, char *options){
+cl_kernel clLikeCUDA::clCreateKernelFromFile(const char *filename, const char *funcname, const char *options){
     cl_int err;
     std::ifstream ifs(filename);
+    std::string content( (std::istreambuf_iterator<char>(ifs) ),
+                       (std::istreambuf_iterator<char>()    ) );
+    const char *program_buffer = content.c_str();
+    size_t program_size = content.length();
+    cl_program program=clCreateProgramWithSource(context,1,&program_buffer,&program_size,&err);
+    if (err != CL_SUCCESS){
+        fprintf(stderr,"clCreateProgramWithSource error: %d",err);
+        exit(EXIT_FAILURE);
+    }
+    err = clBuildProgram(program, 1, &device, options, NULL, NULL);
+    if (err != CL_SUCCESS){
+        fprintf(stderr,"clBuildProgram error: %d",err);
+        char *buff_erro;
+        cl_int errcode;
+        size_t build_log_len;
+        errcode = clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &build_log_len);
+        buff_erro = (char *)malloc(build_log_len);
+        errcode = clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG, build_log_len, buff_erro, NULL);
+        fprintf(stderr,"%s\n",buff_erro);
+        exit(EXIT_FAILURE);
+    }
+    cl_kernel kernel=clCreateKernel(program,funcname,&err);//CL_MEM_READ_ONLY,CL_MEM_WRITE_ONLY,CL_MEM_READ_WRITE
+    if(err!=CL_SUCCESS){
+        printf("clCreateKernel error %s\n",getErrorString(err));
+        exit(EXIT_FAILURE);
+    }
+    clReleaseProgram(program);
+    return kernel;
+}
+cl_kernel clLikeCUDA::clCreateKernelFromFile(std::string &filename_str, std::string &funcname_str, std::string &options_str){
+
+    const char *funcname = (char *)funcname_str.c_str();
+    const char *options = options_str.c_str();
+    cl_int err;
+    std::ifstream ifs(filename_str);
     std::string content( (std::istreambuf_iterator<char>(ifs) ),
                        (std::istreambuf_iterator<char>()    ) );
     const char *program_buffer = content.c_str();
