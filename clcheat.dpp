@@ -1,3 +1,0 @@
-clcheat: clcheat.cpp my_gettime.hpp my_clobj.hpp my_cl_deviceinfo.hpp \
- my_cl_util.hpp
-	g++ -o clcheat clcheat.cpp -O2 -g -std=c++11 -lOpenCL 
