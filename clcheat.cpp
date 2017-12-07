@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "my_gettime.hpp"
-#include "my_clobj.hpp"
+#include "header/my_gettime.hpp"
+#include "header/my_clobj.hpp"
 
 #define OPT1 (10)
 
